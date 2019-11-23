@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import TopNav from "./components/TopNav";
+import SideNav from "./components/SideNav";
+import { Container, Row, Col } from "reactstrap";
+import Dashboard from "./components/dashboard/Dashboard";
+import Cats from "./components/cats/Cats";
+import Dogs from "./components/dogs/Dogs";
+import { connect } from "react-redux";
+import { fetchAllAnimals } from "./store/animals/actions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchAllAnimals());
+  }
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <TopNav />
+          <Container fluid>
+            <Row>
+              <Col xs="2">
+                <SideNav />
+              </Col>
+              <Col>
+                <Switch>
+                  <Route exact path="/" component={Dashboard} />
+                  <Route path="/dogs" component={Dogs} />
+                  <Route path="/cats" component={Cats} />
+                  <Route path="/cats/:id" component={Cats} />
+                </Switch>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default connect()(App);
