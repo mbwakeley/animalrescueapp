@@ -2,6 +2,7 @@ import React from "react";
 import { ListGroup } from "reactstrap";
 import CatsListItem from "./CatsListItem";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class CatsList extends React.Component {
   // state = {
@@ -17,6 +18,11 @@ class CatsList extends React.Component {
       <div style={{ display: "flex" }}>
         <div class="container">
           <div class="col">
+            <Link to={`/cats/newCat/`}>
+              <button class="btn btn-primary btn-lg mt-3 mb-3">
+                Add New Cat
+              </button>
+            </Link>
             <hr />
             <ListGroup>{listOfCats}</ListGroup>
           </div>

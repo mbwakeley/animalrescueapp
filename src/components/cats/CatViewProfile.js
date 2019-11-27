@@ -1,11 +1,24 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardText, Col, Row } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  Button,
+  CardTitle,
+  CardText,
+  Col,
+  Row
+} from "reactstrap";
 import Moment from "react-moment";
 import { connect } from "react-redux";
 
 class CatViewProfile extends React.Component {
   render() {
-    console.log("cat view", this.props);
+    console.log("cat view", this.props.cat);
+
+    const time = this.props.cat.adoptedDate;
+
+    console.log("time", time);
+
     return (
       <Col>
         <Card body className="mb-3">
@@ -13,37 +26,35 @@ class CatViewProfile extends React.Component {
             <img
               width="300px"
               class="img-responsive"
-              src={this.props.animal.picture}
+              src={this.props.cat.picture}
               alt="cat"
             />
           </div>
           <CardBody>
             <CardTitle>
-              <h5>Name: {this.props.animal.name}</h5>
+              <h5>Name: {this.props.cat.name}</h5>
             </CardTitle>
             <Row>
               <Col xs="5">
                 <CardText>
-                  <div>Age: {this.props.animal.age}</div>
-                  <div>Species: {this.props.animal.species}</div>
-                  <div>Breed: {this.props.animal.breed}</div>
+                  <div>Age: {this.props.cat.age}</div>
+                  <div>Species: {this.props.cat.species}</div>
+                  <div>Breed: {this.props.cat.breed}</div>
                 </CardText>
               </Col>
               <Col xs="5">
                 <CardText>
-                  <div>Gender: {this.props.animal.gender}</div>
-                  <div>Color: {this.props.animal.color}</div>
+                  <div>Gender: {this.props.cat.gender}</div>
+                  <div>Color: {this.props.cat.color}</div>
                 </CardText>
               </Col>
             </Row>
             <Row>
               <CardText>
-                {this.props.animal.adopted ? (
+                {this.props.cat.adopted ? (
                   <div>
                     Status: Cat Adopted On{" "}
-                    <Moment format="MM-DD-YYYY">
-                      {this.props.animal.adoptedDate}
-                    </Moment>
+                    <Moment format="MM-DD-YYYY">{time}</Moment>
                   </div>
                 ) : (
                   <div>Status: Available</div>
@@ -52,8 +63,23 @@ class CatViewProfile extends React.Component {
             </Row>
             <Row>
               <CardText>
-                <div>About: {this.props.animal.about}</div>
+                <div>About: {this.props.cat.about}</div>
               </CardText>
+            </Row>
+            <Row>
+              <Button
+                className="mr-1"
+                color="warning"
+                // onClick={e => this.handleEdit(e, this.props.car.id)}
+              >
+                Edit
+              </Button>
+              <Button
+                color="danger"
+                // onClick={e => this.handleClick(e, this.props.car.id)}
+              >
+                Delete
+              </Button>
             </Row>
           </CardBody>
         </Card>
@@ -64,9 +90,7 @@ class CatViewProfile extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    animal: state.animals.all.find(
-      animal => animal.id === props.match.params.id
-    )
+    animal: state.animals.all
   };
 };
 export default connect(mapStateToProps)(CatViewProfile);

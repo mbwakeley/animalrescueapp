@@ -9,6 +9,7 @@ import Cats from "./components/cats/Cats";
 import Dogs from "./components/dogs/Dogs";
 import { connect } from "react-redux";
 import { fetchAllAnimals } from "./store/animals/actions";
+import NewCatForm from "./components/cats/NewCatForm";
 
 class App extends Component {
   componentDidMount() {
@@ -29,7 +30,7 @@ class App extends Component {
                   <Route exact path="/" component={Dashboard} />
                   <Route path="/dogs" component={Dogs} />
                   <Route path="/cats" component={Cats} />
-                  <Route path="/cats/:id" component={Cats} />
+                  <Route path="/newcat/" component={Cats} />
                 </Switch>
               </Col>
             </Row>

@@ -13,7 +13,8 @@ const CatsListItem = props => {
         </Col>
         <Col xs="8">
           <Link to={`/cats/${props.animal.id}`}>
-            <h5>{props.animal.name}</h5>
+            <h5>Name: {props.animal.name}</h5>
+            <h5>Age: {props.animal.age}</h5>
           </Link>
         </Col>
       </Row>
