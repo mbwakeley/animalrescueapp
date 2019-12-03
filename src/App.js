@@ -9,7 +9,6 @@ import Cats from "./components/cats/Cats";
 import Dogs from "./components/dogs/Dogs";
 import { connect } from "react-redux";
 import { fetchAllAnimals } from "./store/animals/actions";
-import NewCatForm from "./components/cats/NewCatForm";
 
 class App extends Component {
   componentDidMount() {

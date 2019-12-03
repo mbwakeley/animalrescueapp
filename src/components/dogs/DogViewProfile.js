@@ -10,19 +10,24 @@ import {
 } from "reactstrap";
 import Moment from "react-moment";
 import { connect } from "react-redux";
-import { removeAnimal } from "../../store/animals/actions";
+import { removeAnimal, editAnimal } from "../../store/animals/actions";
+import { Link } from "react-router-dom";
 
-class CatViewProfile extends React.Component {
+class DogViewProfile extends React.Component {
   handleDelete(e, id) {
     console.log("delete", e);
     this.props.removeAnimal(id);
   }
+
+  handleEdit(e, dog) {
+    console.log("edit", e);
+    this.props.editAnimal(dog);
+  }
+
   render() {
-    console.log("cat view", this.props.cat);
+    console.log("dog view", this.props.dog);
 
-    const time = Date(this.props.cat.adoptedDate);
-
-    console.log("time", time);
+    const time = Date(this.props.dog.adoptedDate);
 
     return (
       <Col>
@@ -31,34 +36,34 @@ class CatViewProfile extends React.Component {
             <img
               width="300px"
               class="img-responsive"
-              src={this.props.cat.picture}
-              alt="cat"
+              src={this.props.dog.picture}
+              alt="dog"
             />
           </div>
           <CardBody>
             <CardTitle>
-              <h5>Name: {this.props.cat.name}</h5>
+              <h5>Name: {this.props.dog.name}</h5>
             </CardTitle>
             <Row>
               <Col xs="5">
                 <CardText>
-                  <div>Age: {this.props.cat.age}</div>
-                  <div>Species: {this.props.cat.species}</div>
-                  <div>Breed: {this.props.cat.breed}</div>
+                  <div>Age: {this.props.dog.age}</div>
+                  <div>Species: {this.props.dog.species}</div>
+                  <div>Breed: {this.props.dog.breed}</div>
                 </CardText>
               </Col>
               <Col xs="5">
                 <CardText>
-                  <div>Gender: {this.props.cat.gender}</div>
-                  <div>Color: {this.props.cat.color}</div>
+                  <div>Gender: {this.props.dog.gender}</div>
+                  <div>Color: {this.props.dog.color}</div>
                 </CardText>
               </Col>
             </Row>
             <Row>
               <CardText>
-                {this.props.cat.adopted ? (
+                {this.props.dog.adopted ? (
                   <div>
-                    Status: Adopted On{" "}
+                    Status: Dog Adopted On{" "}
                     <Moment format="MM-DD-YYYY">{time}</Moment>
                   </div>
                 ) : (
@@ -68,20 +73,22 @@ class CatViewProfile extends React.Component {
             </Row>
             <Row>
               <CardText>
-                <div>About: {this.props.cat.about}</div>
+                <div>About: {this.props.dog.about}</div>
               </CardText>
             </Row>
             <Row>
-              <Button
-                className="mr-1"
-                color="warning"
-                // onClick={e => this.handleEdit(e, this.props.car.id)}
-              >
-                Edit
-              </Button>
+              <Link to={`/dogs/${this.props.dog.id}/editdog`}>
+                <Button
+                  className="mr-1"
+                  color="warning"
+                  onClick={e => this.handleEdit(e, this.props.dog.id)}
+                >
+                  Edit
+                </Button>
+              </Link>
               <Button
                 color="danger"
-                onClick={e => this.handleDelete(e, this.props.cat.id)}
+                onClick={e => this.handleDelete(e, this.props.dog.id)}
               >
                 Delete
               </Button>
@@ -98,4 +105,6 @@ const mapStateToProps = (state, props) => {
     animal: state.animals.all
   };
 };
-export default connect(mapStateToProps, { removeAnimal })(CatViewProfile);
+export default connect(mapStateToProps, { removeAnimal, editAnimal })(
+  DogViewProfile
+);

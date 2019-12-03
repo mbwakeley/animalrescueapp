@@ -12,11 +12,11 @@ import {
 } from "reactstrap";
 import { addAnimal } from "../../store/animals/actions";
 
-class NewCatForm extends React.Component {
+class NewDogForm extends React.Component {
   state = {
     name: "",
     age: "",
-    species: "Cat",
+    species: "Dog",
     breed: "",
     color: "",
     gender: "",
@@ -43,7 +43,7 @@ class NewCatForm extends React.Component {
     this.setState({
       name: "",
       age: "",
-      species: "Cat",
+      species: "Dog",
       breed: "",
       color: "",
       gender: "",
@@ -55,11 +55,11 @@ class NewCatForm extends React.Component {
   };
 
   render() {
-    console.log("newcatform", this.state);
+    console.log("newdogform", this.state);
     return (
       <div style={{ display: "flex" }}>
         <div class="container">
-          <h2 class="text-center mt-5">Add New Cat</h2>
+          <h2 class="text-center mt-5">Add New Dog</h2>
           <button
             class="btn btn-primary"
             onClick={() => this.props.history.goBack()}
@@ -152,7 +152,7 @@ class NewCatForm extends React.Component {
                   </FormGroup>
                 </Col>
               </Row>
-              <Button>Add Cat</Button>
+              <Button>Add Dog</Button>
             </Form>
           </div>
         </div>
@@ -163,4 +163,4 @@ class NewCatForm extends React.Component {
 const mapStateToProps = (state, props) => {
   return {};
 };
-export default connect(mapStateToProps, { addAnimal })(NewCatForm);
+export default connect(mapStateToProps, { addAnimal })(NewDogForm);

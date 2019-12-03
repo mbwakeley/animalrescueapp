@@ -3,7 +3,6 @@ import CatsList from "./CatsList";
 import CatView from "./CatView";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import NewCatForm from "./NewCatForm";
 
 const Cats = props => {
   // let catId = Number(props.match.params.id) || 0;
@@ -20,7 +19,7 @@ const Cats = props => {
         <hr />
         <div class="container-flex">
           <div class="row">
-            <div class="col-3">
+            <div class="col-4">
               <CatsList />
             </div>
             <vr />

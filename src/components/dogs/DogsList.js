@@ -1,30 +1,32 @@
 import React from "react";
 import { ListGroup } from "reactstrap";
-import CatsListItem from "./CatsListItem";
+import DogsListItem from "./DogsListItem";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class CatsList extends React.Component {
+class DogsList extends React.Component {
   // state = {
   //     filterPhrase: ""
   //   };
   render() {
-    const cats = this.props.animals;
-    const listOfCats = cats.map(animal => (
-      <CatsListItem key={animal.id} animal={animal} />
+    const dogs = this.props.animals;
+    const listOfDogs = dogs.map(animal => (
+      <DogsListItem key={animal.id} animal={animal} />
     ));
-    console.log("list of cats", cats);
+
+    console.log("list of dogs", dogs);
+
     return (
       <div style={{ display: "flex" }}>
         <div class="container">
           <div class="col">
-            <Link to={`/cats/newCat/`}>
+            <Link to={`/dogs/newdog/`}>
               <button class="btn btn-primary btn-lg mt-3 mb-3">
-                Add New Cat
+                Add New Dog
               </button>
             </Link>
             <hr />
-            <ListGroup>{listOfCats}</ListGroup>
+            <ListGroup>{listOfDogs}</ListGroup>
           </div>
         </div>
       </div>
@@ -34,7 +36,7 @@ class CatsList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    animals: state.animals.all.filter(animal => animal.species === "Cat")
+    animals: state.animals.all.filter(animal => animal.species === "Dog")
   };
 };
-export default connect(mapStateToProps)(CatsList);
+export default connect(mapStateToProps)(DogsList);
