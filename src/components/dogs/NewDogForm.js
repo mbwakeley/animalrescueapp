@@ -60,12 +60,6 @@ class NewDogForm extends React.Component {
       <div style={{ display: "flex" }}>
         <div class="container">
           <h2 class="text-center mt-5">Add New Dog</h2>
-          <button
-            class="btn btn-primary"
-            onClick={() => this.props.history.goBack()}
-          >
-            GO BACK
-          </button>
           <div class="col">
             <hr />
             <Form onSubmit={this.handleSubmit}>

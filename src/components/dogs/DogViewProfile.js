@@ -81,7 +81,7 @@ class DogViewProfile extends React.Component {
                 <Button
                   className="mr-1"
                   color="warning"
-                  onClick={e => this.handleEdit(e, this.props.dog.id)}
+                  onClick={e => this.handleEdit(e, this.props.dog)}
                 >
                   Edit
                 </Button>

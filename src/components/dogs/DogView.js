@@ -16,11 +16,17 @@ const DogView = props => {
       return <DogViewProfile key={dog.id} dog={dog} />;
     });
 
+  const editOneDog = props.animals
+    .filter(animal => animal.id === dogId)
+    .map(dog => {
+      return <EditDogForm key={dog.id} dog={dog} />;
+    });
+
   return (
     <>
       {dogId && !window.location.pathname.includes("edit") && oneDog}
       {window.location.pathname.includes("new") && <NewDogForm />}
-      {window.location.pathname.includes("edit") && <EditDogForm />}
+      {window.location.pathname.includes("edit") && editOneDog}
     </>
   );
 };

@@ -19,7 +19,8 @@ import {
 const initialState = {
   all: [],
   one: {},
-  err: {}
+  err: {},
+  id: 0
 };
 
 export default (state = initialState, action) => {
@@ -67,7 +68,7 @@ export default (state = initialState, action) => {
     case EDIT_ANIMAL_SUCCESS:
       return {
         ...state,
-        editAnimalId: action.payload
+        id: action.payload
       };
 
     default:
