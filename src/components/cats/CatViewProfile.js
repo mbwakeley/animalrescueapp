@@ -10,19 +10,22 @@ import {
 } from "reactstrap";
 import Moment from "react-moment";
 import { connect } from "react-redux";
-import { removeAnimal } from "../../store/animals/actions";
+import { removeAnimal, editAnimal } from "../../store/animals/actions";
+import { Link } from "react-router-dom";
 
 class CatViewProfile extends React.Component {
   handleDelete(e, id) {
     console.log("delete", e);
     this.props.removeAnimal(id);
   }
+
+  handleEdit(e, cat) {
+    console.log("edit", e);
+    this.props.editAnimal(cat);
+  }
   render() {
     console.log("cat view", this.props.cat);
-
     const time = Date(this.props.cat.adoptedDate);
-
-    console.log("time", time);
 
     return (
       <Col>
@@ -72,13 +75,15 @@ class CatViewProfile extends React.Component {
               </CardText>
             </Row>
             <Row>
-              <Button
-                className="mr-1"
-                color="warning"
-                // onClick={e => this.handleEdit(e, this.props.car.id)}
-              >
-                Edit
-              </Button>
+              <Link to={`/cats/${this.props.cat.id}/editcat`}>
+                <Button
+                  className="mr-1"
+                  color="warning"
+                  onClick={e => this.handleEdit(e, this.props.cat)}
+                >
+                  Edit
+                </Button>
+              </Link>
               <Button
                 color="danger"
                 onClick={e => this.handleDelete(e, this.props.cat.id)}
@@ -98,4 +103,6 @@ const mapStateToProps = (state, props) => {
     animal: state.animals.all
   };
 };
-export default connect(mapStateToProps, { removeAnimal })(CatViewProfile);
+export default connect(mapStateToProps, { removeAnimal, editAnimal })(
+  CatViewProfile
+);

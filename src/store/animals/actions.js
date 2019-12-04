@@ -91,13 +91,13 @@ export const removeAnimal = id => async dispatch => {
   }
 };
 
-export const editAnimal = (id, dog) => async dispatch => {
+export const editAnimal = (id, updatedAnimal) => async dispatch => {
   console.log("editAnimalId", id);
   dispatch({
     type: EDIT_ANIMAL_PENDING
   });
   try {
-    let response = await axios.patch(BASE_URL + `/${id}`, dog);
+    let response = await axios.patch(BASE_URL + `/${id}`, updatedAnimal);
     dispatch({
       type: EDIT_ANIMAL_SUCCESS,
       payload: response.data
