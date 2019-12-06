@@ -29,6 +29,8 @@ class DogViewProfile extends React.Component {
 
     const time = Date(this.props.dog.adoptedDate);
 
+    const dogPicture = this.props.dog.picture + `/${this.props.dog.id}`;
+
     return (
       <Col>
         <Card body className="mb-3">
@@ -36,13 +38,13 @@ class DogViewProfile extends React.Component {
             <img
               width="300px"
               class="img-responsive"
-              src={this.props.dog.picture}
-              alt="dog"
+              src={dogPicture}
+              alt="picture of a dog"
             />
           </div>
           <CardBody>
             <CardTitle>
-              <h5>Name: {this.props.dog.name}</h5>
+              <h3>Name: {this.props.dog.name}</h3>
             </CardTitle>
             <Row>
               <Col xs="5">

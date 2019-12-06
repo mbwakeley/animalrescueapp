@@ -8,10 +8,14 @@ const SideNav = () => {
   return (
     <ListGroup className="mt-3">
       <NavLink to="/dogs">
-        <ListGroupItem>Dogs</ListGroupItem>
+        <ListGroupItem>
+          <h4>Dogs</h4>
+        </ListGroupItem>
       </NavLink>
-      <NavLink to="/cats">
-        <ListGroupItem>Cats</ListGroupItem>
+      <NavLink to="/cats" className="mt-3">
+        <ListGroupItem>
+          <h4>Cats</h4>
+        </ListGroupItem>
       </NavLink>
     </ListGroup>
   );

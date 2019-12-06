@@ -22,7 +22,7 @@ class NewDogForm extends React.Component {
     gender: "",
     adopted: false,
     adoptedDate: "",
-    picture: "http://placehold.it/32x32",
+    picture: "https://placedog.net/500/280?id=",
     about: ""
   };
 
@@ -49,7 +49,7 @@ class NewDogForm extends React.Component {
       gender: "",
       adopted: false,
       adoptedDate: "",
-      picture: "http://placehold.it/32x32",
+      picture: "https://placedog.net/500/280?id=",
       about: ""
     });
   };

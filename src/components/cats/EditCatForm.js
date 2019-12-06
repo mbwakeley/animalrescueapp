@@ -22,7 +22,7 @@ class EditCatForm extends React.Component {
     gender: this.props.gender,
     adopted: this.props.adopted,
     adoptedDate: this.props.adoptedDate,
-    picture: "http://placehold.it/32x32",
+    picture: "https://placedog.net/500/280?id=",
     about: this.props.about
   };
 
@@ -37,7 +37,7 @@ class EditCatForm extends React.Component {
       gender: this.state.gender,
       adopted: this.state.adopted,
       adoptedDate: this.state.adoptedDate,
-      picture: this.state.picture,
+      picture: "https://placedog.net/500/280?id=",
       about: this.state.about
     });
   };

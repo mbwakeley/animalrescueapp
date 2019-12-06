@@ -22,7 +22,7 @@ class NewCatForm extends React.Component {
     gender: "",
     adopted: false,
     adoptedDate: "",
-    picture: "http://placehold.it/32x32",
+    picture: "http://lorempixel.com/400/400/cats",
     about: ""
   };
 
@@ -49,7 +49,7 @@ class NewCatForm extends React.Component {
       gender: "",
       adopted: false,
       adoptedDate: "",
-      picture: "http://placehold.it/32x32",
+      picture: "http://lorempixel.com/400/400/cats",
       about: ""
     });
   };

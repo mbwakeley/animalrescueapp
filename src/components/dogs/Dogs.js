@@ -7,7 +7,7 @@ const Dogs = props => {
   return (
     <div>
       <div class="container-fluid">
-        <h2 class="text-center">Dogs</h2>
+        <h1 class="text-center">Dogs</h1>
         <hr />
         <div class="container-flex">
           <div class="row">

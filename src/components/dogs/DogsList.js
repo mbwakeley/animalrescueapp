@@ -5,14 +5,20 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class DogsList extends React.Component {
-  // state = {
-  //     filterPhrase: ""
-  //   };
+  state = {
+    filterPhrase: ""
+  };
+
+  handleChange = e => {
+    let { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     const dogs = this.props.animals;
-    const listOfDogs = dogs.map(animal => (
-      <DogsListItem key={animal.id} animal={animal} />
-    ));
+    const listOfDogs = dogs
+      .filter(dog => dog.name.toLowerCase().includes(this.state.filterPhrase))
+      .map(animal => <DogsListItem key={animal.id} animal={animal} />);
 
     console.log("list of dogs", dogs);
 
@@ -26,6 +32,15 @@ class DogsList extends React.Component {
               </button>
             </Link>
             <hr />
+            <input
+              id="searchInput"
+              type="text"
+              name="filterPhrase"
+              className="flex"
+              placeholder="Search pet name..."
+              onChange={this.handleChange}
+              style={{ marginBottom: "15px", width: "100%" }}
+            />
             <ListGroup>{listOfDogs}</ListGroup>
           </div>
         </div>

@@ -6,9 +6,7 @@ import { withRouter } from "react-router-dom";
 import EditDogForm from "./EditDogForm";
 
 const DogView = props => {
-  console.log("Dogview", props);
   let dogId = Number(props.match.params.id) || 0;
-  console.log("dogid", dogId);
 
   const oneDog = props.animals
     .filter(animal => animal.id === dogId)

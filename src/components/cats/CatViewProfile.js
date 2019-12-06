@@ -27,6 +27,9 @@ class CatViewProfile extends React.Component {
     console.log("cat view", this.props.cat);
     const time = Date(this.props.cat.adoptedDate);
 
+    const catPicture = this.props.cat.picture + `/${this.props.cat.id}`;
+    console.log("cat picture ", catPicture);
+
     return (
       <Col>
         <Card body className="mb-3">
@@ -34,13 +37,13 @@ class CatViewProfile extends React.Component {
             <img
               width="300px"
               class="img-responsive"
-              src={this.props.cat.picture}
+              src={catPicture}
               alt="cat"
             />
           </div>
           <CardBody>
             <CardTitle>
-              <h5>Name: {this.props.cat.name}</h5>
+              <h3>Name: {this.props.cat.name}</h3>
             </CardTitle>
             <Row>
               <Col xs="5">
