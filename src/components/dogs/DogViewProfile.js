@@ -29,7 +29,8 @@ class DogViewProfile extends React.Component {
 
     const time = Date(this.props.dog.adoptedDate);
 
-    const dogPicture = this.props.dog.picture + `/${this.props.dog.id}`;
+    const dogPicture = this.props.dog.picture + `${this.props.dog.id}`;
+    console.log("dogpicture", dogPicture);
 
     return (
       <Col>

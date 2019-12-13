@@ -11,6 +11,7 @@ import {
   FormText
 } from "reactstrap";
 import { editAnimal } from "../../store/animals/actions";
+import { Link } from "react-router-dom";
 
 class EditCatForm extends React.Component {
   state = {

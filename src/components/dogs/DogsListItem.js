@@ -4,7 +4,7 @@ import { ListGroupItem, Row, Col, Badge } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const DogsListItem = props => {
-  const dogPicture = props.animal.picture + `/${props.animal.id}`;
+  const dogPicture = props.animal.picture + `${props.animal.id}`;
 
   return (
     <ListGroupItem>

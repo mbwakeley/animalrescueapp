@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  /* background: blue;
-  background-image: url("https://st10.cannypic.com/thumbs/12/127209_632_canny_pic.jpg"); */
+  background: blue;
+  background-image: url("https://render.fineartamerica.com/images/rendered/default/print/8.000/4.000/break/images-medium-5/paw-vector-dog-paw-seamless-pattern-french-bulldog-isolated-wallpaper-background-white-cnuisin.jpg");
+  background-attachment: fixed;
 }
 
 .App-logo {
